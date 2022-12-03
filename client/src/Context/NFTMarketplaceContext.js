@@ -4,6 +4,7 @@ import { ethers } from "ethers";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { create as ipfsHttpClient } from "ipfs-http-client";
+
 //const cors = require('cors')
 //require("dotenv").config("./../server.env" );
 
@@ -29,9 +30,7 @@ const client = ipfsHttpClient({
   port: 5001,
   protocol: "https",
   headers: {
-
     authorization: auth,
-   
   },
 });
 
@@ -159,7 +158,14 @@ export const NFTMarketplaceProvider = ({ children }) => {
       const added = await client.add(data);
 
       const url = `https://infura-ipfs.io/ipfs/${added.path}`;
-
+      const res = await fetch(`http://localhost:3003/api/v1/nfts/${added.path}`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+     // await res.save();
       await createSale(url, price);
       router.push("/searchPage");
     } catch (error) {

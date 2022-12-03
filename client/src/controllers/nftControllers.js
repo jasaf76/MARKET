@@ -3,7 +3,6 @@ const NFT = require("../models/nftModel");
 const APIFeatures = require("./../utils/apiFeatures");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("./../utils/appError");
-
 exports.aliasTopNFTs = (req, res, next) => {
   req.query.limit = "5";
   req.query.sort = "-ratingsAverage,price";

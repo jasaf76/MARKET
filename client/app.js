@@ -1,11 +1,11 @@
 const express = require("express");
 const morgan = require("morgan");
-const AppError = require("./utils/AppError");
-const globalErrorHandler = require("./controllers/errorController");
+const AppError = require("./../client/src/utils/appError");
+const globalErrorHandler = require("./../client/src/controllers/errorController");
 
-const nftsRouter = require("./routes/nftsRoute");
+const nftsRouter = require("./../client/src/routes/nftsRoute");
 
-const usersRouter = require("./routes/usersRoute");
+const usersRouter = require("./../client/src/routes/usersRoute");
 
 const app = express();
 app.use(express.json());
@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(morgan("dev"));
 //SERVING TEMPLATE DEMO
-app.use(express.static(`${__dirname}/nft-data/img`));
+//app.use(express.static(`${__dirname}/nft-data/img`));
 
 //Custom Middleware
 app.use((req, res, next) => {
