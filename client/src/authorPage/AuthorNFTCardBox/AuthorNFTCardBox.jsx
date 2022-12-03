@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 //INTERNAL IMPORT
 import Style from "./AuthorNFTCardBox.module.css";
-import images from "../../src/img";
+import images from "../../img";
 import { NFTCardTwo } from "../../collectionPage/collectionIndex";
 import FollowerTabCard from "../../components/FollowerTab/FollowerTabCard/FollowerTabCard";
 import { Loader } from "../../components/componentsindex";
